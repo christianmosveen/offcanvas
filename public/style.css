@@ -1,25 +1,201 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: "Helvetica Neue", clean, sans-serif;
+}
+a { text-decoration: none; }
+h1 { font-weight: 900; font-size: 24px; padding-bottom: 5%;}
+.page-title { color: #fff; font-size: 34px; text-align: center; padding: 3% 5% 5%; margin-bottom: -1.5em; letter-spacing: -.05em;}
+.page-title a { color: #eee; }
+.page-title a:hover { color: #fff; }
+body { background-color: #99a1a5; }
+
 #container {
-	width: 900px;
-	margin: auto;
+	width: 100%;
+	overflow: hidden;
+}
+#middle:before,
+#middle:after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background-color: #ffd09f;
+}
+#middle:after {
+	left: 100%;
+	background-color: #fb9dc7;	
+}
+
+#left, #middle, #right {
+	-webkit-transition: .3s all ease;
+	-moz-transition: .3s all ease;
+	transition: .3s all ease;
+	width: 90%;
+	height: 800px;
+	padding: 5%;
+	float: left;
+	display: block;	
+	position: relative;
 }
 
 #left {
-	background-color: #fb9dc7;
-	width: 300px;
-	height: 300px;
-	float: left;
+	margin-left: -100%;
 }
 
 #middle {
-	background-color: #ffd09f;
-	width: 300px;
-	height: 300px;
-	float: left;
+	background-color: #9bf8b7;
+	margin-left: 0;
 }
 
 #right {
-	background-color: #9bf8b7;
-	width: 300px;
-	height: 300px;
+	margin-right: -200%;
+}
+
+.active-nav #left {	
+	margin-left: 0;	
+	width: 80%;
+}
+.active-nav #middle {
+	margin-right: -100%;
+}
+.active-nav #right {	
+	margin-right: -100%;
+	float: right;		
+}
+.active-sidebar #left {	
+	margin-left: -200%;
+}
+.active-sidebar #middle {
+	margin-left: -90%;	
+}
+.active-sidebar #right {	
+	margin-left: 0;
+	width: 80%;	
+}
+
+.off-canvas-navigation {
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	color: #fff;
+}
+.off-canvas-navigation ul li {
+	width: 20%;
+	display: block;
 	float: left;
+}
+.off-canvas-navigation ul li.sidebar-item {
+	float: right;
+}
+.menu-button,
+.sidebar-button {
+	padding: 1em 20%;
+	font-size: 14px;
+	display: block;
+	background: #333;
+	background: rgba(0,0,0,.3);
+	color: #fff;
+	border-top-right-radius: 1em;
+	box-shadow: inset 0 20px 20px rgba(255,255,255,.1);		
+}
+.menu-button.active-button,
+.sidebar-button.active-button {
+}
+a.menu-button:hover,
+a.sidebar-button:hover {
+	text-decoration: none;	
+	background: rgba(0,0,0,.35);
+	color: #ddd;
+}
+.sidebar-button {
+	text-align: right;	
+	border-top-left-radius: 1em;
+	border-top-right-radius: 0;	
+	background: rgba(0,0,0,.15);				
+}
+
+@media all and (min-width: 600px) {
+	.page-title { text-align: left; margin-bottom: -1.1em; font-size: 60px; padding: 1% 0 0 30%;}			
+	.off-canvas-navigation ul li {
+		float: right;
+		width: 20%;
+	}	
+	.menu-button {
+		display: none;
+	}
+	.sidebar-button {
+		border: none;			
+	}	
+	#left {
+		width: 20%;	
+		margin-left: 0;
+	}
+	#middle {
+		width: 60%;
+		float: left;
+	}
+	#right {
+		width: 20%;
+	}				
+	.active-sidebar #left {	
+		margin-left: -100%;
+	}
+	.active-sidebar #middle {
+		margin-left: 0;
+		width: 60%;
+	}
+	.active-sidebar #right {	
+		margin-right: -80%;
+		width: 20%;
+	}			
+}
+
+
+@media all and (min-width: 800px) {
+	.page-title {text-align: center; font-size: 100px; margin-bottom: -.35em; padding: 0;}
+	.container {
+		max-width: 1140px;
+		margin: 0 auto;
+	}
+	.off-canvas-navigation {
+		display: none;
+	}			
+	
+	#left {
+		width: 19%;	
+		margin-left: 0;
+		float: left;
+		padding: 3%
+	}
+
+	#middle {
+		width: 44%;
+		padding: 3%;		
+	}
+
+	#right {
+		width: 19%;	
+		padding: 3%;	
+		margin-right: 0;
+		float: right;
+	}			
 }

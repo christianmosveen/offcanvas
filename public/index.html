@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Multi-Device Layout</title>
+        <title>Off Canvas</title>
         <link type="text/css" rel="stylesheet" href="style.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
     </head>
     <body>
         <div id="container">
-        	<div id="left"></div>
-        	<div id="middle"></div>
-        	<div id="right"></div>
+        	<header id="header">	
+				<h1 class="page-title"><a href="/">Off Canvas</a></h1>
+			</header>
+        	<nav class="off-canvas-navigation">
+				<ul>
+					<li class="menu-item"><a class='menu-button' href="#menu">&larr;</a></li>			
+					<li class="sidebar-item"><a class='sidebar-button' href="#sidebar">&rarr;</a></li>
+				</ul>
+			</nav>
+        	<nav id="left"></nav>
+        	<section id="middle"></section>
+        	<section id="right"></section>
         </div>
     </body>
 </html>
